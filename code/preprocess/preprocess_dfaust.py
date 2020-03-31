@@ -1,7 +1,6 @@
 from __future__ import print_function
 import sys
-import torch
-sys.path.append('../../')
+sys.path.append('../code')
 import argparse
 
 import utils.general as utils

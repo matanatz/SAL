@@ -15,7 +15,7 @@ if __name__ == '__main__':
     parser.add_argument('--expname', type=str, default='')
     parser.add_argument('--gpu', type=str, default='all', help='GPU to use [default: all].')
     parser.add_argument('--parallel', default=False,action="store_true", help='If set, indicaties running on multiple gpus.')
-    parser.add_argument('--workers', type=int, default=1, help='Data loader number of workers.')
+    parser.add_argument('--workers', type=int, default=16, help='Data loader number of workers.')
     parser.add_argument('--is_continue', default=False,action="store_true", help='If set, indicates continuing from a previous run.')
     parser.add_argument('--timestamp', type=str,help='The timestamp of the run to be used in case of continuing from a previous run.')
     parser.add_argument('--checkpoint', type=str,help='The checkpoint epoch number of the run to be used in case of continuing from a previous run.')

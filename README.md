@@ -16,7 +16,7 @@ The code is compatible with python 3.7 + pytorch 1.4. In addition, the following
 pyhocon, plotly, scikit-image, trimesh, GPUtil, tqdm, CGAL.
 
 ### Usage
-#### Learning shape space from raw scans of D-Faust dataset
+#### Learning shape space from the D-Faust dataset raw scans
 ##### Data
 The raw scans can be downloaded from http://dfaust.is.tue.mpg.de/downloads.
 To preprorocess the scans, run:

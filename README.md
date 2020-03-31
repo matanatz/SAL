@@ -5,7 +5,7 @@
 
 This repository contains an implementation to the CVPR 2020 paper (Oral) SAL: Sign Agnostic Learning of Shapes From Raw Data.
 
-SAL is a deep learning approach for learning implicit shaperepresentations directly from raw, unsigned geometric data,such as point clouds and triangle soups
+SAL is a deep learning approach for learning implicit shape representations directly from raw, unsigned geometric data, such as point clouds and triangle soups.
 
 The teaser above depicts an example where collectively learning a dataset of raw human scans using SAL overcomes many imperfections and artifacts in the data (left in every gray pair) and provides high quality surface reconstructions (right in every gray pair) and shape space (interpolations of latent representations are in gold).
 

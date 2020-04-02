@@ -66,7 +66,7 @@ python evaluate/evaluate.py --batch_size 1 --conf ./confs/recon.conf --workers 1
 Finally, to produce the meshed surface, run:
 ```
 cd ./code
-python evaluate/evaluate.py
+python evaluate/evaluate.py --exp_name recon --conf ./confs/recon.conf --split none
 ```
 
 ### Citation

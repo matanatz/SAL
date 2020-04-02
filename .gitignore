@@ -8,6 +8,5 @@ code/__pycache__/
 *.gz
 *.pyc
 *.html
-*checkpoint*
 *DS_Store*
 *.csh

@@ -4,7 +4,7 @@ import torch
 import numpy as np
 from skimage import measure
 import os
-from plotly import tools
+from tqdm import tqdm
 import utils.general as utils
 def get_threed_scatter_trace(points,caption = None,colorscale = None,color = None):
 
@@ -105,9 +105,9 @@ def get_surface_trace(points,decoder,latent,resolution,mc_value,is_uniform,verbo
 
     z = []
 
-    for i,pnts in enumerate(torch.split(grid['grid_points'],100000,dim=0)):
-        if (verbose):
-            print ('{0}'.format(i/(grid['grid_points'].shape[0] // 100000) * 100))
+    for pnts in tqdm(torch.split(grid['grid_points'],100000,dim=0)):
+        # if (verbose):
+        #     print ('{0}'.format(i/(grid['grid_points'].shape[0] // 100000) * 100))
 
         if (not latent is None):
             pnts = torch.cat([latent.expand(pnts.shape[0], -1), pnts], dim=1)

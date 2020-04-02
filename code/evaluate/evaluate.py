@@ -86,6 +86,7 @@ def optimize_latent(latent, ds, itemindex, decoder, path, epoch,resolution,conf)
         return  reconstruction
 
 def evaluate(network,exps_dir,experiment_name,timestamp, split_filename, epoch, conf, with_opt,resolution,compute_dist_to_gt):
+
     utils.mkdir_ifnotexists(os.path.join('../', exps_dir, experiment_name, timestamp, 'evaluation'))
     utils.mkdir_ifnotexists(os.path.join('../', exps_dir, experiment_name, timestamp, 'evaluation',split_filename.split('/')[-1].split('.json')[0]))
     path = os.path.join('../', exps_dir, experiment_name, timestamp, 'evaluation',split_filename.split('/')[-1].split('.json')[0], str(epoch))
@@ -106,7 +107,7 @@ def evaluate(network,exps_dir,experiment_name,timestamp, split_filename, epoch, 
         plot_cmpr = True
         ds = DFaustDataSet(split=split, dataset_path=dataset_path, dist_file_name=dist_file_name, with_gt=True)
         total_files = len(ds)
-        print ("total files : {0}".format(total_files))
+        logging.info ("total files : {0}".format(total_files))
     counter = 0
     dataloader = torch.utils.data.DataLoader(ds,
                                                   batch_size=1,
@@ -117,7 +118,7 @@ def evaluate(network,exps_dir,experiment_name,timestamp, split_filename, epoch, 
 
         counter = counter + 1
 
-        logging.debug("evaluating " + ds.npyfiles_mnfld[data[-1]])
+        logging.info("evaluating " + ds.npyfiles_mnfld[data[-1]])
 
         input_pc = data[0].cuda()
         if latent_size > 0:
@@ -361,9 +362,9 @@ if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument("--exp_name", required=True, help='The experiment name to be evaluated.')
     arg_parser.add_argument("--exps_dir", default="exps",  help='The experiments directory.')
-    arg_parser.add_argument("--timestamp", required=True)
+    arg_parser.add_argument("--timestamp", default="latest",help="The experiemnt timestamp to test.")
     arg_parser.add_argument("--conf", required=True)
-    arg_parser.add_argument("--checkpoint", help="The checkpoint to test.")
+    arg_parser.add_argument("--checkpoint", default="latest",help="The trained model checkpoint to test.")
     arg_parser.add_argument("--split", required=True,help="The split to evaluate.")
     arg_parser.add_argument("--parallel", default=False, action="store_true", help="Should be set to True if the loaded model was trained in parallel mode.")
     arg_parser.add_argument('--gpu', type=str, default='auto', help='GPU to use [default: GPU auto].')
@@ -372,6 +373,7 @@ if __name__ == '__main__':
     arg_parser.add_argument('--compute_dist_to_gt', default=False, action="store_true", help='Set to True for computing chamfer distance between reconstruction to gt meshes')
 
     args = arg_parser.parse_args()
+    utils.configure_logging(True,False,None)
 
     if args.timestamp == 'latest':
         timestamps = os.listdir(os.path.join('../',args.exps_dir,args.exp_name))

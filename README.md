@@ -3,7 +3,7 @@
   <img src="teaser2.png"/>
 </p>
 
-This repository contains an implementation to the CVPR 2020 paper (Oral) SAL: Sign Agnostic Learning of Shapes From Raw Data.
+This repository contains an implementation to the CVPR 2020 paper SAL: Sign Agnostic Learning of Shapes From Raw Data.
 
 SAL is a deep learning approach for learning implicit shape representations directly from raw, unsigned geometric data, such as point clouds and triangle soups.
 
@@ -17,14 +17,23 @@ pyhocon, plotly, scikit-image, trimesh, GPUtil, tqdm, CGAL.
 
 ### Usage
 #### Learning shape space from the D-Faust dataset raw scans
+
+##### Predicting Meshed surfaces with SAL trained network
+```
+cd ./code
+python evaluate/evaluate.py --checkpoint 2000 --parallel --exp_name dfaust --conf ./confs/dfaust.conf --split ./confs/splits/dfaust/test_all_every5.json --exps_dir trained_models
+```
+
 ##### Data
 The raw scans can be downloaded from http://dfaust.is.tue.mpg.de/downloads.
-To preprorocess the scans, run:
+In order to be able to run the training process, the raw scans need to be preprocessed using:
 
 ```
 cd ./code
 python preprocess/preprocess_dfaust.py 
 ```
+
+
 ##### Training
 To train, run:
 ```
@@ -32,7 +41,7 @@ cd ./code
 python training/exp_runner.py
 ```
 ##### Evaluation
-To produce high resolution meshed surfaces of the learned implicit representations via the Marching Cubes algorithm, run:
+To produce meshed surfaces of the learned implicit representations via the Marching Cubes algorithm, run:
 ```
 cd ./code
 python evaluate/evaluate.py

@@ -12,7 +12,7 @@ The teaser above depicts an example where collectively learning a dataset of raw
 For more details visit: https://arxiv.org/abs/1911.10414.
 
 ### Installation Requirmenets
-The code is compatible with python 3.7 + pytorch 1.4. In addition, the following packages are required:  
+The code is compatible with python 3.7 and pytorch 1.2. In addition, the following packages are required:  
 pyhocon, plotly, scikit-image, trimesh, GPUtil, tqdm, CGAL.
 
 ### Usage

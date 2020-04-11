@@ -27,29 +27,24 @@ cd ./code
 python preprocess/preprocess_dfaust.py 
 ```
 
-##### Predicting Meshed surfaces with SAL trained network
+##### Predicting meshed surfaces with SAL trained network
+We have uploaded SAL trained networks. To produce predictions on unseen test scans, run:
 ```
 cd ./code
 python evaluate/evaluate.py --checkpoint 2000 --parallel --exp_name dfaust --conf ./confs/dfaust.conf --split ./confs/splits/dfaust/test_all_every5.json --exps_dir trained_models
 ```
 
+Notice that it also possible to compute the chamfer distance to registrations and input scan using the --compute_dist_to_gt flag.
+
 ##### Training
-To train, run:
+If you want to train SAL yourself, run:
 ```
 cd ./code
 python training/exp_runner.py
 ```
-##### Evaluation
-To produce meshed surfaces of the learned implicit representations via the Marching Cubes algorithm, run:
-```
-cd ./code
-python evaluate/evaluate.py
-```
-
-Notice that it also possible to compute the chamfer distance to registrations and input scan using the --compute_dist_to_gt flag.
 
 #### Surface reconstruction
-SAL can be used to reconstruct a single raw 3D data such as a point cloud or a triangle soup. Update the file ./confs/recon.conf to point the path of your inpur raw 3D data:
+SAL can also be used to reconstruct a single raw 3D data such as a point cloud or a triangle soup. Update the file ./confs/recon.conf to point to the path of your inpur raw 3D data:
 ```
 train
 {

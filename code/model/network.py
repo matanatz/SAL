@@ -154,7 +154,6 @@ class Decoder(nn.Module):
 
         if self.use_activation:
             x = self.last_activation(x) + 1.0 * x
-            x = x
 
         return x
 

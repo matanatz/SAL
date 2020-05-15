@@ -56,7 +56,7 @@ train
 Then, run training:
 ```
 cd ./code
-python evaluate/evaluate.py --batch_size 1 --conf ./confs/recon.conf --workers 1 
+python training/exp_runner.py --batch_size 1 --conf ./confs/recon.conf --workers 1 
 ```
 Finally, to produce the meshed surface, run:
 ```

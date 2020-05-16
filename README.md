@@ -44,7 +44,7 @@ python training/exp_runner.py
 ```
 
 #### Surface reconstruction
-SAL can also be used to reconstruct a single raw 3D data such as a point cloud or a triangle soup. Update the file ./confs/recon.conf to point to the path of your inpur raw 3D data:
+SAL can also be used to reconstruct a single raw 3D data such as a point cloud or a triangle soup. Update the file ./confs/recon.conf to point to the path of your input raw 3D data:
 ```
 train
 {

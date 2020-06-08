@@ -67,10 +67,11 @@ python evaluate/evaluate.py --exp_name recon --conf ./confs/recon.conf --split n
 ### Citation
 If you find our work useful in your research, please consider citing:
 
-        @article{atzmon2019sal,
-        title={Sal: Sign agnostic learning of shapes from raw data},
-        author={Atzmon, Matan and Lipman, Yaron},
-        journal={arXiv preprint arXiv:1911.10414},
-        year={2019}
-        }
+       @InProceedings{Atzmon_2020_CVPR,
+		author = {Atzmon, Matan and Lipman, Yaron},
+		title = {SAL: Sign Agnostic Learning of Shapes From Raw Data},
+		booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+		month = {June},
+		year = {2020}
+		}
 	

@@ -76,7 +76,7 @@ If you find our work useful in your research, please consider citing:
 		}
 		
 ### Related papers
-* [Atzmon & Lipman. - SAL++: Sign Agnostic Learning with Derivatives (2020)](https://arxiv.org/abs/2006.05400)
+* [Atzmon & Lipman. - SALD: Sign Agnostic Learning with Derivatives (2020)](https://arxiv.org/abs/2006.05400)
 * [Gropp et al. - Implicit Geometric Regularization for Learning Shapes (2020)](https://arxiv.org/abs/2002.10099)
 * [Atzmon et al. - Controlling Neural Level Sets (2019)](https://arxiv.org/abs/1905.11911)
 	

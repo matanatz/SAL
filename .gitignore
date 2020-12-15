@@ -2,6 +2,7 @@ exps*
 code/.idea/
 code_temp
 code/__pycache__/
+.idea
 *.aux
 *.log
 *.out

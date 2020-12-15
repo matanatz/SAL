@@ -45,10 +45,7 @@ class SALReconLoss(GenLoss):
                 weight=None,
                 latent_reg=None):
 
-
-
         recon_term = torch.abs(nonmanifold_pnts_pred.squeeze().abs() - 1).mean() + self.manifold_pnts_weight*manifold_pnts_pred.abs().mean()
-
         loss = recon_term
 
         return {"loss": loss, 'recon_term': recon_term.mean(), 'reg_term': torch.tensor([0.0])}

@@ -3,6 +3,7 @@ import sys
 sys.path.append('../code')
 from training.sal_training import SalTrainRunner
 import GPUtil
+import torch
 
 
 
@@ -10,7 +11,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--batch_size', type=int, default=64, help='Input batch size.')
-    parser.add_argument('--nepoch', type=int, default=2000, help='Number of epochs to train.')
+    parser.add_argument('--nepoch', type=int, default=5000, help='Number of epochs to train.')
     parser.add_argument('--conf', type=str, default='./confs/dfaust.conf')
     parser.add_argument('--expname', type=str, default='')
     parser.add_argument('--gpu', type=str, default='all', help='GPU to use [default: all].')
@@ -30,8 +31,6 @@ if __name__ == '__main__':
         gpu = deviceIDs[0]
     else:
         gpu = opt.gpu
-
-
 
     trainrunner = SalTrainRunner(conf=opt.conf,
                                       batch_size=opt.batch_size,

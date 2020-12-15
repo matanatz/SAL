@@ -111,7 +111,7 @@ class Decoder(nn.Module):
 
             if l == self.num_layers - 2:
                 torch.nn.init.normal_(lin.weight, mean=2*np.sqrt(np.pi) / np.sqrt(p * dims[l]), std=0.000001)
-                torch.nn.init.constant_(lin.bias, -1.0)
+                torch.nn.init.constant_(lin.bias, -2.0)
             else:
                 torch.nn.init.constant_(lin.bias, 0.0)
                 torch.nn.init.normal_(lin.weight, 0.0, np.sqrt(2) / np.sqrt(p*out_dim))
